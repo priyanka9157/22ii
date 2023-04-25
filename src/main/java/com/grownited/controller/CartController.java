@@ -136,7 +136,7 @@ public class CartController {
 		List<AddressBean> address =  addressDao.getAllAddressByUser(user.getUserId());
 		model.addAttribute("address",address);
 
-		return "Checkout";
+		return "Checkout2";
 	}
 	
 	

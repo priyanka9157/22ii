@@ -10,7 +10,7 @@ public class OrderDetailBean {
 	Float price;
 	Integer status;
 	Integer statusName;
-	Integer productName;
+	String productName;
 	
 	
 	public Integer getOrderDetailId() {
@@ -65,15 +65,15 @@ public class OrderDetailBean {
 	public void setStatusName(Integer statusName) {
 		this.statusName = statusName;
 	}
-	
-	
-	public Integer getProductName() {
+	public String getProductName() {
 		return productName;
 	}
-	public void setProductName(Integer productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 	
+	
+	 
 	
 	
 

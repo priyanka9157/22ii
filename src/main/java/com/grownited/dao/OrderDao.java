@@ -33,7 +33,7 @@ public class OrderDao {
 
 	
 	public void addOrderDetail(CartBean cart, Integer orderId) {
-		stmt.update("insert into orderDetail(orderId,userId,productId,price,quantity,status) values (?,?,?,?,?,?)", orderId,
+		stmt.update("insert into orderDetail(orderId,userId,productId,price,qty,status) values (?,?,?,?,?,?)", orderId,
 				cart.getUserId(), cart.getProductId(), cart.getPrice(), cart.getQuantity(), 7);
 	}
 

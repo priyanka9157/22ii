@@ -74,6 +74,10 @@ public class Productdao {
 		stmt.update(updateQuery,productBean.getProductName(),productBean.getDescription(),productBean.getQuantity(),productBean.getBrandName(),productBean.getPrice(),productBean.getProductId());
 		
 	}
+
+	public List<ProductBean> getRelatedProductbyId(Integer categoryId) {
+		return stmt.query("select p*,c.categoryId,c.categoryName from product p,category c where c.categoryId=p.categoryId and p.categoryId = ?", new BeanPropertyRowMapper<ProductBean>(ProductBean.class),new Object[] {categoryId} );
+	}
 	
 	
 	// update
