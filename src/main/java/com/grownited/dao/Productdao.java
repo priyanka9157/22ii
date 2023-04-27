@@ -70,7 +70,7 @@ public class Productdao {
 	}
 
 	public void updateProduct(ProductBean productBean) {
-		String updateQuery = "update product set productName  = ?,description =?,quantity=?,brandName=?,price=?,productDetailDescriptionURL=? where productId = ? ";
+		String updateQuery = "update product set productName  = ?,description =?,quantity=?,brandName=?,price=? where productId = ? ";
 		stmt.update(updateQuery,productBean.getProductName(),productBean.getDescription(),productBean.getQuantity(),productBean.getBrandName(),productBean.getPrice(),productBean.getProductId());
 		
 	}

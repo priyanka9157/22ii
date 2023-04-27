@@ -125,19 +125,7 @@ public class CartController {
 		return "MyCart";
 	}
 	
-	@GetMapping("/checkout")
-	public String checkout(HttpSession session,Model model) {
-		UserBean user = (UserBean) session.getAttribute("user");
-		List<CategoryBean> list = categoryDao.getAllCategory();
-		model.addAttribute("list",list);
-
-		List<CartBean> mycart = cartDao.myCart(user.getUserId());
-		model.addAttribute("mycart",mycart);
-		List<AddressBean> address =  addressDao.getAllAddressByUser(user.getUserId());
-		model.addAttribute("address",address);
-
-		return "Checkout2";
-	}
+	
 	
 	
 	

@@ -191,7 +191,7 @@
 							%>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="assets/product/<%=product.getProductId()%>/main.jpg">
-                            <h5><a href="seedetails?productId=<%=product.getProductId()%>"><%=product.getProductName()%></a></h5>
+                            <h5><a href="seedetails?productId=<%=product.getProductId() %>"><%=product.getProductName()%></a></h5>
                         </div>
                     </div>
                    

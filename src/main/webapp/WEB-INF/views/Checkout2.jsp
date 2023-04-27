@@ -117,6 +117,8 @@
 				<i class="fa fa-bars"></i>
 			</div>
 		</div>
+		</div>
+		
 	</header>
 	<!-- Header Section End -->
 
