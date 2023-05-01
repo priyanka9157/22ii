@@ -17,9 +17,9 @@ public class Productdao {
 
 	// add
 	public void addProduct(ProductBean productBean) {
-		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,categoryName,subCategoryName) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,categoryName,subCategoryName,latestInd) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		stmt.update(insertQuery, productBean.getProductId(),productBean.getProductName(),productBean.getDescription(),productBean.getQuantity(),productBean.getPrice(),false,false, productBean.getBrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getCategoryName(),productBean.getSubCategoryName());// insert //update //delete
+		stmt.update(insertQuery, productBean.getProductId(),productBean.getProductName(),productBean.getDescription(),productBean.getQuantity(),productBean.getPrice(),false,false, productBean.getBrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getCategoryName(),productBean.getSubCategoryName(),productBean.getLatestInd());// insert //update //delete
 	}
 
 	public  List<ProductBean> getAllProduct() {
@@ -76,7 +76,7 @@ public class Productdao {
 	}
 
 	public List<ProductBean> getRelatedProductbyId(Integer categoryId) {
-		return stmt.query("select p*,c.categoryId,c.categoryName from product p,category c where c.categoryId=p.categoryId and p.categoryId = ?", new BeanPropertyRowMapper<ProductBean>(ProductBean.class),new Object[] {categoryId} );
+		return stmt.query("select p.*,c.categoryId,c.categoryName from product p,category c where c.categoryId=p.categoryId and p.categoryId = ?", new BeanPropertyRowMapper<ProductBean>(ProductBean.class),new Object[] {categoryId} );
 	}
 	
 	

@@ -166,8 +166,7 @@
                         <div class="hero__text">
                             <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <a href="" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
                 </div>
@@ -191,7 +190,7 @@
 							%>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="assets/product/<%=product.getProductId()%>/main.jpg">
-                            <h5><a href="seedetails?productId=<%=product.getProductId() %>"><%=product.getProductName()%></a></h5>
+                            <h5><a href="seedetails?productId=<%=product.getProductId()%>"><%=product.getProductName()%></a></h5>
                         </div>
                     </div>
                    
@@ -209,7 +208,8 @@
     <%
 		List<ProductBean> latestProducts = (List<ProductBean>) request.getAttribute("latestProducts");
         List<ProductBean> topSellingProducts = (List<ProductBean>) request.getAttribute("topSellingProducts");
-                		
+		List<ProductBean> list4 = (List<ProductBean>) request.getAttribute("list4");
+        		
 	%>
     <section class="featured spad">
         <div class="container">
@@ -221,10 +221,11 @@
                     <div class="featured__controls">
                         <ul>
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
+                                                      <%for(CategoryBean cb:list){ %>
+                            
+                            <li data-filter=".oranges"><%=cb.getCategoryName() %></li>
+                           
+                            <%} %>
                         </ul>
                     </div>
                 </div>
@@ -249,7 +250,7 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6><a href="#"><%=product.getProductId()%></a></h6>
+                            <h6><a href="#"><%=product.getProductName()%></a></h6>
                             <h5>Rs.<%=product.getPrice()%>.00</h5>
                         </div>
                     </div>
@@ -407,79 +408,48 @@
                                         <span>Rs.<%=product.getPrice() %>.00</span>
                                     </div>
                                 </a>
-                                
-                                
                                     </div>
-                                   
                         </div>
                          <%} %>
                     </div>
                 </div>
+                
+                
+                
+                
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
                         <h4>Review Products</h4>
+                        <%
+                                int k = 0;
+                                for (ProductBean p : list4){
+                                	k++;
+    								if (k == 4)
+    									break;
+                                %>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
+                              
+                                <a href="seedetails?productId=<%=p.getProductId()%>" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/img/latest-product/lp-1.jpg" alt="">
+                                        <img src="assets/product/<%=p.getProductId() %>/main.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
+                                        <h6><%=p.getProductName() %></h6>
+                                        <span>Rs.<%=p.getPrice() %></span>
                                     </div>
                                 </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                
                             </div>
                         </div>
+                         <%} %>
+                               
                     </div>
                 </div>
+                
+                
+                
             </div>
         </div>
     </section>

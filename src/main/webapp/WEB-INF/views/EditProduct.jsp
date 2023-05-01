@@ -82,14 +82,6 @@
                        
                       </div>
                       
-                      <div>
-                      
-                        <label for="defaultFormControlInput" class="form-label">Product Detail Description</label>
-                        
-                        <input type="text" name="productDetailDescriptionURL" value="${productBean.productDetailDescriptionURL}" class="form-control" id="defaultFormControlInput" placeholder="subcategory name" aria-describedby="defaultFormControlHelp">
-                       
-                      </div>
-                      
                       
                       
                       <br><br>

@@ -251,9 +251,7 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                         <p><%=product.getDescription()%></p>
-                        <div class="product__details__price">Rs.<%=product.getPrice() %>.00</div>
-                       
+                       <div class="product__details__price">Rs.<%=product.getPrice() %>.00</div>
                         
                         <div class="product__details__quantity">
                             <div class="quantity">
@@ -265,11 +263,15 @@
                             </div>
                         </div>
                         
-                        
+                 <a href="addtocart?productId=<%=product.getProductId() %>" class="primary-btn">ADD TO CARD</a>
+            <a href="addtowishlist?productId=<%=product.getProductId() %>" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                      
+                      
+                      <p><%=product.getDescription()%></p>
+                         
+                       
                       <input type="hidden" name="productId" value="<%=product.getProductId()%>"/>
                         
-                        <a href="addtocart?productId=<%=product.getProductId() %>" class="primary-btn">ADD TO CARD</a>
-                        <a href="addtowishlist?productId=<%=product.getProductId() %>" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         
                         
                         <ul>
@@ -296,49 +298,50 @@
 
 <!-- Related Product -->
 
-<%--    <% --%>
-//    List<ProductBean> List3 =(List<ProductBean>)request.getAttribute("list3");
-<%--    %> --%>
-<!-- <section class="related-product"> -->
-<!--         <div class="container"> -->
-<!--             <div class="row"> -->
-<!--                 <div class="col-lg-12"> -->
-<!--                     <div class="section-title related__product__title"> -->
-<!--                         <h2>Related Product</h2> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--             <div class="row"> -->
-<%--             <% --%>
+  <%
+  List<ProductBean> List3 =(List<ProductBean>)request.getAttribute("list3");
+ %> 
+      <section class="related-product">
+      <div class="container"> 
+          <div class="row"> 
+            <div class="col-lg-12">
+              <div class="section-title related__product__title">
+                       <h2>Related Product</h2>
+                </div>
+             </div> 
+             </div> 
+             <div class="row"> 
+             <%
                
-//                for(ProductBean cb:List3){
+                for(ProductBean cb:List3){
                	
                	
-<%--                	%> --%>
-<!--                 <div class="col-lg-3 col-md-4 col-sm-6"> -->
+                	%> 
+                 <div class="col-lg-3 col-md-4 col-sm-6"> 
                 
                 
-<!--                     <div class="product__item"> -->
-<%--                         <div class="product__item__pic set-bg" data-setbg="assets/product/<%=cb.getProductId()%>/main.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-1.jpg&quot;);"> --%>
-<!--                             <ul class="product__item__pic__hover"> -->
-<!--                                 <li><a href="#"><i class="fa fa-heart"></i></a></li> -->
-<!--                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-<%--                                 <li><a href="addtocart?productId=<%=cb.getProductId() %>"><i class="fa fa-shopping-cart"></i></a></li> --%>
-<!--                             </ul> -->
-<!--                         </div> -->
-<!--                         <div class="product__item__text"> -->
-<%--                             <h6><a href="#"><%=cb.getProductName() %></a></h6> --%>
-<%--                             <h5>Rs.<%=cb.getPrice() %>.00</h5> --%>
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
+                     <div class="product__item"> 
+                         <div class="product__item__pic set-bg" data-setbg="assets/product/<%=cb.getProductId()%>/main.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-1.jpg&quot;);"> 
+                             <ul class="product__item__pic__hover"> 
+                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>                                
+                                 <li><a href="addtocart?productId=<%=cb.getProductId() %>">
+                                 <i class="fa fa-shopping-cart"></i></a></li>
+                             </ul>
+                          </div>
+                         <div class="product__item__text">
+                             <h6><a href="#"><%=cb.getProductName() %></a></h6> 
+                             <h5>Rs.<%=cb.getPrice() %>.00</h5> 
+                         </div> 
+                     </div> 
+                 </div> 
                 
-<%--                 <%} %> --%>
+                 <%} %> 
                 
                 
-<!--             </div> -->
-<!--         </div> -->
-<!--     </section> -->
+             </div> 
+        </div> 
+     </section> 
     <!-- /Related Products -->
     
     
