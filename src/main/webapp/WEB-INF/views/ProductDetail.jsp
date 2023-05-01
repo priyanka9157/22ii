@@ -323,14 +323,14 @@
                      <div class="product__item"> 
                          <div class="product__item__pic set-bg" data-setbg="assets/product/<%=cb.getProductId()%>/main.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-1.jpg&quot;);"> 
                              <ul class="product__item__pic__hover"> 
-                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>                                
-                                 <li><a href="addtocart?productId=<%=cb.getProductId() %>">
-                                 <i class="fa fa-shopping-cart"></i></a></li>
+                             
+                                 <li><a href="addtowishlist?productId=<%=cb.getProductId()%>"><i class="fa fa-heart"></i></a></li>
+                                 <li><a href="seedetails?productId=<%=cb.getProductId()%>"><i class="fa fa-retweet"></i></a></li>                                
+                                 <li><a href="addtocart?productId=<%=cb.getProductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                              </ul>
                           </div>
                          <div class="product__item__text">
-                             <h6><a href="#"><%=cb.getProductName() %></a></h6> 
+                             <h6><a href="seedetails?productId=<%=cb.getProductId()%>"><%=cb.getProductName() %></a></h6> 
                              <h5>Rs.<%=cb.getPrice() %>.00</h5> 
                          </div> 
                      </div> 

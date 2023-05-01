@@ -123,14 +123,14 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    
-    <section class="hero">
-        <div class="container">
-            <div class="row">
-            <%
+     <%
         	List<CategoryBean> list =(List<CategoryBean>)request.getAttribute("list");
 
  %>
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+           
                 <div class="col-lg-3">
                     <div class="hero__categories">
                         <div class="hero__categories__all">
@@ -282,6 +282,7 @@
                     </div>
                     <div class="featured__controls">
                         <ul>
+                        
                             <li class="active" data-filter="*">All</li>
                             <li data-filter=".oranges">Oranges</li>
                             <li data-filter=".fresh-meat">Fresh Meat</li>
@@ -486,12 +487,11 @@
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                                                  <%for(CategoryBean cb:list){ %>
+                        
+                            <li><a href="seecategory?categoryId=<%=cb.getCategoryId()%>"><%=cb.getCategoryName() %></a></li>
+                            
+                            <%} %>
                         </ul>
                     </div>
                 </div>

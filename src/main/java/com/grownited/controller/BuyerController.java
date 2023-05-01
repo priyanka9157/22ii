@@ -61,6 +61,7 @@ public class BuyerController {
 		model.addAttribute("allCategoryName", allCategoryName);
 		List<CategoryBean> list = categoryDao.getAllCategory();
 		model.addAttribute("list", list);
+		
 		Integer userId = -1; // session cookie 
 		
 		
