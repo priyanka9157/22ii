@@ -125,7 +125,8 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">mybucket</span>
+							<a href="./index.html"><img src="assets/img/logo.png" alt=""></a>
+						
                 </a>
               </div>
               <!-- /Logo -->

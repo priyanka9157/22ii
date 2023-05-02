@@ -1,6 +1,5 @@
 package com.grownited.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,11 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.grownited.bean.AddressBean;
 import com.grownited.bean.CartBean;
 import com.grownited.bean.CategoryBean;
 import com.grownited.bean.UserBean;
@@ -84,7 +80,7 @@ public class CartController {
 
 	
 	@GetMapping("/addtocart")
-	public String addToCart(@RequestParam("productId") Integer productId, HttpSession session,
+	public String addToCart(@RequestParam("productId") Integer productId,@RequestParam("qty") Integer qty, HttpSession session,
 			HttpServletRequest request) {
 		String ref = request.getHeader("referer");
 		String backUrl = "";
@@ -106,7 +102,7 @@ public class CartController {
 
 		cart.setUserId(userId);
 		cart.setProductId(productId);
-		cart.setQuantity(1);
+		cart.setQuantity(qty);
 
 		cartDao.addToCart(cart);
 

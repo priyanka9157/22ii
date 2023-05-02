@@ -1,7 +1,9 @@
 package com.grownited.dao;
 
 
-	import org.springframework.beans.factory.annotation.Autowired;
+	import java.util.Calendar;
+
+import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.jdbc.core.BeanPropertyRowMapper;
 	import org.springframework.jdbc.core.JdbcTemplate;
 	import org.springframework.stereotype.Repository;
@@ -18,11 +20,26 @@ package com.grownited.dao;
 
 		// add customer -- signup
 		public void insertUser(UserBean userBean) {
+			Calendar c = Calendar.getInstance();
+
+			int ddd = c.get(Calendar.DATE);
+			int mmm = c.get(Calendar.MONTH) + 1;
+			int yyy = c.get(Calendar.YEAR);
+
+			String today = "";
+
+			if (mmm < 10) {
+				today = ddd + "-0" + mmm + "-" + yyy;
+			} else {
+				today = ddd + "-" + mmm + "-" + yyy;
+			}
+			System.out.println("TODAY => " + today);
+
 			//
 			String insertQuery = "insert into users (firstName,lastName,email,password,role,gender,dob,createdAt,active,contactNum) values (?,?,?,?,?,?,?,?,?,?)";
 
 			// role -> 2 for customer/buyer/user
-			stmt.update(insertQuery, userBean.getFirstName(), userBean.getLastName(), userBean.getEmail(),userBean.getPassword(),2,userBean.getGender(),userBean.getDob(),userBean.getCreatedAt(),false,userBean.getContactNum());// query execute
+			stmt.update(insertQuery, userBean.getFirstName(), userBean.getLastName(), userBean.getEmail(),userBean.getPassword(),2,userBean.getGender(),userBean.getDob(),today,false,userBean.getContactNum());// query execute
 
 		}
 

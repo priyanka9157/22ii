@@ -49,15 +49,15 @@
 		<div class="humberger__menu__logo">
 			<a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
 		</div>
-		
+
 		<div class="humberger__menu__widget">
-			
+
 			<div class="header__top__right__auth">
 				<a href="login"><i class="fa fa-user"></i> Login</a>
 			</div>
 		</div>
-		      <jsp:include page="NavBar.jsp"></jsp:include>
-		
+		<jsp:include page="NavBar.jsp"></jsp:include>
+
 		<div id="mobile-menu-wrap"></div>
 		<div class="header__top__right__social">
 			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
@@ -94,7 +94,7 @@
 									class="fa fa-linkedin"></i></a> <a href="#"><i
 									class="fa fa-pinterest-p"></i></a>
 							</div>
-							
+
 							<div class="header__top__right__auth">
 								<a href="login"><i class="fa fa-user"></i> Login</a>
 							</div>
@@ -111,14 +111,14 @@
 							alt=""></a>
 					</div>
 				</div>
-					                                <jsp:include page="BuyerMenu.jsp"></jsp:include>
-					
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
+				<jsp:include page="BuyerMenu.jsp"></jsp:include>
+
+				<div class="humberger__open">
+					<i class="fa fa-bars"></i>
+				</div>
 			</div>
 		</div>
-		</div>
-		
+
 	</header>
 	<!-- Header Section End -->
 
@@ -139,7 +139,7 @@
 							<%
 							for (CategoryBean c : list) {
 							%>
-							<li><a href="seecategory?categoryId=<%=c.getCategoryId()%>"><%=c.getCategoryName() %></a></li>
+							<li><a href="seecategory?categoryId=<%=c.getCategoryId()%>"><%=c.getCategoryName()%></a></li>
 							<%
 							}
 							%>
@@ -157,18 +157,18 @@
 								<button type="submit" class="site-btn">SEARCH</button>
 							</form>
 						</div>
-						
-							
-						</div>
+
+
 					</div>
 				</div>
 			</div>
-		
+		</div>
+
 	</section>
 	<!-- Hero Section End -->
 
 	<!-- Breadcrumb Section Begin -->
-	
+
 	<section class="breadcrumb-section set-bg"
 		data-setbg="assets/buyer/img/breadcrumb.jpg">
 		<div class="container">
@@ -176,113 +176,130 @@
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
 						<h2>My Cart</h2>
-						
-						</div>
+
 					</div>
 				</div>
 			</div>
-			</div>
-		
+		</div>
+		</div>
+
 	</section>
 	<!-- Breadcrumb Section End -->
 
 	<!-- Product Details Section Begin -->
- 
-    
-     <%
-    
+
+
+	<%
 	List<CartBean> mycart = (List<CartBean>) request.getAttribute("mycart");
 	%>
 
-<section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Products</th>
-                                    
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <%
-											int totalQuantity = 0;
-											int totalPrice = 0;
-											for (CartBean c : mycart) {
-										%>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="assets/product/<%=c.getProductId()%>/main.jpg" alt="" style="width: 123.753px; ">
-                                        
-                                        
-                                         <h5><%=c.getProductName()%></h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        Rs.<%=c.getPrice() %>.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty"><span class="dec qtybtn"></span>
-                                                <input type="text" value="1">
-                                            <span class="inc qtybtn">+</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    Rs.<%=c.getPrice()*c.getQuantity() %>.00   
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                       <a href="deletecart?cartId=<%=c.getCartId()%>"> <span class="icon_close"></span></a>
-                                    </td>
-                                </tr>
-                                
-                                
-                                <%
-											totalPrice = totalPrice + (c.getPrice()*c.getQuantity());
-												totalQuantity = totalQuantity + c.getQuantity();
-											}
-										%>
-										<tr>
-										    <td></td>
-											<td class="product-name"><b>TOTAL</b></td>
-											<td><%=totalQuantity %></td>
-											<td>Rs.<%=totalPrice %>.00</td>
 
-											<%session.setAttribute("totalPrice", totalPrice); %>
-										</tr>
-										<tr>
-										<td class="actions" colspan="6"><a  href="checkout" type="button"
-				 								class="btn btn-success">Checkout</a></td>
-										</tr>
-										
-										
-                                         </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
-<!--                 <div class="col-lg-6"> -->
-<!--                     <div class="shoping__continue"> -->
-<!--                         <div class="shoping__discount"> -->
-<!--                             <h5>Discount Codes</h5> -->
-<!--                             <form action="#"> -->
-<!--                                 <input type="text" placeholder="Enter your coupon code"> -->
-<!--                                 <button type="submit" class="site-btn">APPLY COUPON</button> -->
-<!--                             </form> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-                
-            </div>
-       
-    </section>
-    
+	<%
+	if (mycart.size() != 0) {
+	%>
+
+	<section class="shoping-cart spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="shoping__cart__table">
+						<table>
+							<thead>
+								<tr>
+									<th class="shoping__product">Products</th>
+
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<%
+								int totalQuantity = 0;
+								int totalPrice = 0;
+								for (CartBean c : mycart) {
+								%>
+								<tr>
+									<td class="shoping__cart__item"><img
+										src="assets/product/<%=c.getProductId()%>/main.jpg" alt=""
+										style="width: 123.753px;">
+
+
+										<h5><%=c.getProductName()%></h5></td>
+									<td class="shoping__cart__price">Rs.<%=c.getPrice()%>.00
+									</td>
+									<td class="shoping__cart__quantity"><%=c.getQuantity()%></td>
+									<td class="shoping__cart__total">Rs.<%=c.getPrice() * c.getQuantity()%>.00
+									</td>
+									<td class="shoping__cart__item__close"><a
+										href="deletecart?cartId=<%=c.getCartId()%>"> <span
+											class="icon_close"></span></a></td>
+								</tr>
+
+
+								<%
+								totalPrice = totalPrice + (c.getPrice() * c.getQuantity());
+								totalQuantity = totalQuantity + c.getQuantity();
+								}
+								%>
+								<tr>
+									<td></td>
+									<td class="product-name"><b>TOTAL</b></td>
+									<td><%=totalQuantity%></td>
+									<td>Rs.<%=totalPrice%>.00
+									</td>
+
+									<%
+									session.setAttribute("totalPrice", totalPrice);
+									%>
+								</tr>
+								<tr>
+									<td class="actions" colspan="6"><a href="checkout"
+										type="button" class="btn btn-success">Checkout</a></td>
+								</tr>
+
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!--                 <div class="col-lg-6"> -->
+			<!--                     <div class="shoping__continue"> -->
+			<!--                         <div class="shoping__discount"> -->
+			<!--                             <h5>Discount Codes</h5> -->
+			<!--                             <form action="#"> -->
+			<!--                                 <input type="text" placeholder="Enter your coupon code"> -->
+			<!--                                 <button type="submit" class="site-btn">APPLY COUPON</button> -->
+			<!--                             </form> -->
+			<!--                         </div> -->
+			<!--                     </div> -->
+			<!--                 </div> -->
+
+		</div>
+
+	</section>
+	<%
+	} else {
+	%>
+
+	<section class="shoping-cart spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+			
+					<h2>Hey !! Please Add Some Goodies in Your Bag</h2>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<%
+	}
+	%>
 	<!-- Related Product Section End -->
 
 	<!-- Footer Section Begin -->
