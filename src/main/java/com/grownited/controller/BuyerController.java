@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.grownited.bean.AddressBean;
 import com.grownited.bean.CartBean;
 import com.grownited.bean.CategoryBean;
+import com.grownited.bean.PaymentBean;
 import com.grownited.bean.ProductBean;
 import com.grownited.bean.ProductImageBean;
 import com.grownited.bean.ReviewProductBean;
@@ -24,6 +25,7 @@ import com.grownited.bean.UserBean;
 import com.grownited.dao.AddressDao;
 import com.grownited.dao.CartDao;
 import com.grownited.dao.CategoryDao;
+import com.grownited.dao.PaymentDao;
 import com.grownited.dao.ProductImageDao;
 import com.grownited.dao.Productdao;
 import com.grownited.dao.ReviewProductDao;
@@ -48,6 +50,9 @@ public class BuyerController {
 
 	@Autowired
 	ReviewProductDao reviewProductDao;
+	
+	@Autowired
+	PaymentDao paymentDao;
 
 	@GetMapping(value = { "/", "/welcome" })
 	public String welcome(Model model,HttpServletRequest request) {
@@ -97,7 +102,7 @@ public class BuyerController {
 		model.addAttribute("productImages", productImages);
 		List<CategoryBean> list1 = categoryDao.getProductByCategoryId(product.getCategoryId());
 		model.addAttribute("list1", list1);
-		
+		       
 		List<ProductBean> list3 = productDao.getRelatedProductbyId(product.getCategoryId());
 		model.addAttribute("list3", list3);
 
@@ -160,8 +165,18 @@ public class BuyerController {
 		model.addAttribute("mycart", mycart);
 		List<AddressBean> address = addressDao.getAllAddressByUser(user.getUserId());
 		model.addAttribute("address", address);
+		List<PaymentBean> list1 = paymentDao.getAllPayment();
+		model.addAttribute("Plist",list1);
 
 		return "Checkout2";
 	}
+    
+	
+	@GetMapping("/placeorder")
+	public String placeorder() {
+		return "PlaceOrder";
+	
+	}
+	
 
 }

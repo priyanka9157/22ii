@@ -85,7 +85,7 @@ public class OrderControler {
 
 
 		
-		return "redirect:/myorder";
+		return "PlaceOrder";
 	}
 	
 	@GetMapping("/myorder")

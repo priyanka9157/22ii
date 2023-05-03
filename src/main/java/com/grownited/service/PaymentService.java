@@ -1,17 +1,22 @@
 package com.grownited.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 import net.authorize.Environment;
 import net.authorize.api.contract.v1.*;
 import net.authorize.api.controller.CreateTransactionController;
 import net.authorize.api.controller.base.ApiOperationBase;
+
 @Service
 public class PaymentService {
-	
-	public   ANetApiResponse chargeCreditCard(Double amount,String email,String creditCardNum,String expDate) {
+	@Autowired
+	JdbcTemplate stmt;
+
+	public ANetApiResponse chargeCreditCard(Double amount, String email, String creditCardNum, String expDate) {
 
 		// Set the request to operate in either the sandbox or production environment
 		ApiOperationBase.setEnvironment(Environment.SANDBOX);
@@ -98,4 +103,5 @@ public class PaymentService {
 		return response;
 	}
 
+	
 }

@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<%@page import="com.grownited.bean.PaymentBean"%>
 <%@page import="com.grownited.bean.AddressBean"%>
 <%@page import="com.grownited.bean.CartBean"%>
 <%@page import="com.grownited.bean.CategoryBean"%>
@@ -175,7 +176,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>New Address</h2>
+						<h2>My Address</h2>
 						
 						</div>
 					</div>
@@ -188,55 +189,83 @@
 
 	<!-- Product Details Section Begin -->
  
+    <%
+         List<PaymentBean> list1 = (List<PaymentBean>) request.getAttribute("Plist");
+                                   
+										%>
+     <section class="shoping-cart spad">
     
-     <section class="checkout spad">
         <div class="container">
             <div class="row">
-                
-            </div>
-            <div class="checkout__form">
-                <h4>Address Details</h4>
-                <form action="saveaddress" method="post">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                           <th class="product-remove">Credit Card Number</th>
+											<th class="product-thumbnail">Exp date</th>
+											<th class="product-subtotal">Default</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
                             
-                            
-                            <div class="checkout__input">
-                                <p>Address Line<span>*</span></p>
-                                <input type="text" name="addressLine" placeholder="Street Addressline" class="checkout__input__add">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Land Mark<span>*</span></p>
-                                <input type="text" name="landMark">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Pincode<span>*</span></p>
-                                <input type="text" name="pincode">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text" name="city">
-                            </div>
-                            <div class="checkout__input">
-                                <p>State<span>*</span></p>
-                                <input type="text" name="state">
-                            </div>
-                            <input type="hidden" name="userId" value="${user.userId}"/>
-							<input type="hidden" name="defaultInd" value="false"/>
-                            
-                           <input class="btn btn-success"  type="submit" value="Save Address"/>
-                            
-                            <a class="btn btn-success" href="myaddress">Cancel</a>
-                            
-                            
-                        
-                        </div>
+                                
+                                    
+										 <% int totalQuantity = 0;
+    								int totalPrice = 0;
+                                    for (PaymentBean b : list1) {%>
+										<tr>
+										
+										
+										<td class="shoping__cart__price"><%=b.getCreditCardNum()%>
+									</td>
+									<td class="shoping__cart__quantity"><%=b.getExpDate()%></td>
+																
+										<td>
+											<input type="checkbox" <%=b.getDefaultInd()==true?"checked":""%> />
+											</td>	
+										
+                                        </tr>
+                                        <%
+								totalPrice = totalPrice + (c.getPrice() * c.getQuantity());
+								totalQuantity = totalQuantity + c.getQuantity();
+								}
+								%>
+								<tr>
+									<td></td>
+									<td class="product-name"><b>TOTAL</b></td>
+									<td><%=totalQuantity%></td>
+									<td>Rs.<%=totalPrice%>.00
+									</td>
+
+									<%
+									session.setAttribute("totalPrice", totalPrice);
+									%>
+								</tr>
+								<tr>
+									<td class="actions" colspan="6"><a href="checkout"
+										type="button" class="btn btn-success">Checkout</a></td>
+								</tr>
+                                        
+                                        
+                               
+                                         </tbody>
+                        </table>
+                        <div>
+                        <br>
+                        <a href="newpayment">
+                       <input class="site-btn type="button"  value="Add Payment"></a>
+                       </div>
                         
                     </div>
-                </form>
+                </div>
             </div>
+            
         </div>
+        
     </section>
+     <%} else {%>
     
 	<!-- Related Product Section End -->
 

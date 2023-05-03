@@ -7,6 +7,7 @@
                              <li class="active"><a href="mycart">Cart</a></li>
                              <li class="active"><a href="myorder">Order</a></li>
                              <li class="active"><a href="contactus">ContactUs</a></li>
+                               <li class="active"><a href="listpayment">Payment</a></li>
                                <li><a href="mywishlist"><i class="fa fa-heart"></i></a></li>
                             <li><a href="mycart"><i class="fa fa-shopping-bag"></i></a></li>
                             

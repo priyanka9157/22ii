@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<%@page import="com.grownited.bean.PaymentBean"%>
 <%@page import="com.grownited.bean.AddressBean"%>
 <%@page import="com.grownited.bean.CartBean"%>
 <%@page import="com.grownited.bean.CategoryBean"%>
@@ -208,20 +209,19 @@
                                 <div class="checkout__order__subtotal">Shipping<span>Rs.${totalPrice <= 499?50:"Free Shipping" }.00</span></div>
                                 <div class="checkout__order__total">Total <span>Rs.${totalPrice <= 499?totalPrice+50:totalPrice }.00</span></div>
                                 <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    
                                 </div>
                             <%
-									List<AddressBean> address = (List<AddressBean>) request.getAttribute("address");
+                			
+                            List<AddressBean> address = (List<AddressBean>) request.getAttribute("address");
 								%>
+								
+									
 					<form action="placeorder" method="post"> 
 								<div id="payment">
 									<ul class="payment_methods methods">
-
-
+										
+						
 										<%for(AddressBean a:address){ %>
 										<li class="payment_method_bacs"><input type="radio" <%=a.getDefaultInd()==true?"checked":"" %> value="<%=a.getAddressId()%>"
 											name="addressId" class="input-radio"
@@ -235,11 +235,15 @@
 												</p>
 											</div></li>
 											<%} %>
-
-
-									</ul>
-									 <button type="submit" class="site-btn">PLACE ORDER</button>
+                                        
+                                            </ul>
+									
+                        <a href="placeorder">
+                       <input class="site-btn type="button"  value="Place Order"></a>
+                       </div>
+									</form>
 									 </div>
+									 
 									 </form>
 									 
 									 </div>
