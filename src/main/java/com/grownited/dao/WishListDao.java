@@ -30,14 +30,11 @@ public class WishListDao {
 	}
 	
 	
-	public void removeItemsFromWhislist(Integer userId) {
-		stmt.update("delete from wishlist where userId = ?",userId);
-
-	}
-
+	
 
 	public void deleteWishlist(Integer wishlistId) {
-		stmt.update("delete from wishlist where wishlistId  = ?",wishlistId);
+		String updateQuery = "delete from wishlist where wishlistId = ?";
+		stmt.update(updateQuery, wishlistId);
 
 	}
 	

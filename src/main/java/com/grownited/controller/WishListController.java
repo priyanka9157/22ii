@@ -40,11 +40,13 @@ public class WishListController {
 	
 
 	@GetMapping("/deletewishlist")
-	public String deleteWishlist(@RequestParam("wishlistId") Integer wishlistId) {
+	public String deleteWishlist(@RequestParam("wishlistId") Integer wishlistId,HttpSession session,
+			HttpServletRequest request) {
 		// 12 45
 		wishListDao.deleteWishlist(wishlistId);
 		return "redirect:/mywishlist";//
 	}
+	
 	
 	@GetMapping("/addtowishlist")
 	public String addToWishList(@RequestParam("productId") Integer productId, HttpSession session,

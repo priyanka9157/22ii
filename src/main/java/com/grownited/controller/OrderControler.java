@@ -20,11 +20,13 @@ import com.grownited.bean.CartBean;
 import com.grownited.bean.CategoryBean;
 import com.grownited.bean.OrderBean;
 import com.grownited.bean.OrderDetailBean;
+import com.grownited.bean.PaymentBean;
 import com.grownited.bean.UserBean;
 import com.grownited.dao.AddressDao;
 import com.grownited.dao.CartDao;
 import com.grownited.dao.CategoryDao;
 import com.grownited.dao.OrderDao;
+import com.grownited.dao.PaymentDao;
 import com.grownited.dao.StatusDao;
 @Controller
 public class OrderControler {
@@ -42,18 +44,34 @@ public class OrderControler {
 	CartDao cartDao;
 	@Autowired
 	CategoryDao categoryDao;
+	
+	@Autowired
+	PaymentDao paymentDao;
 
 	
 	@PostMapping("/placeorder")
-	public String placeOrder(AddressBean addressBean,HttpSession session) {
+	public String placeOrder(AddressBean addressBean,HttpSession session,Model model) {
+		
+		
+
 		UserBean user = (UserBean) session.getAttribute("user");
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list", list);
+
+		List<PaymentBean> list1 = paymentDao.getAllPayment();
+		model.addAttribute("Plist",list1);
+		
 		Integer addressId = addressBean.getAddressId(); 
 		LocalDate today = LocalDate.now();
 		Integer status = 9; //placed
 		Integer orderId = (int)(Math.random()*10000000);//565475455 
 
 		//amount 
+		
 		List<CartBean> mycart = cartDao.myCart(user.getUserId());
+		model.addAttribute("mycart", mycart);
+		
+		
 		Integer totalAmount =0 ; 
 		for(CartBean c:mycart) {
 			totalAmount = (totalAmount)+(c.getPrice()*c.getQuantity());
@@ -83,7 +101,7 @@ public class OrderControler {
 
 		cartDao.removeItemsFromCart(user.getUserId());
 
-
+		
 		
 		return "PlaceOrder";
 	}

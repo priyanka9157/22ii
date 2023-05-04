@@ -79,7 +79,7 @@ import com.grownited.service.PaymentService;
 
 		paymentService.chargeCreditCard(paymentBean.getAmount(), paymentBean.getEmail(), paymentBean.getCreditCardNum(),
 				paymentBean.getExpDate());
-	   return "MyPayment";
+	   return "MyOrder";
 	}
 
 }

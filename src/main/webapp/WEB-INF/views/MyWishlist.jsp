@@ -223,7 +223,7 @@
 										%>
 										
                                 <tr>
-                         <input type="hidden" name="wishlistId" value="<%=c.getWishlistId()%>"/>
+                         
                                 
                                     <td class="shoping__cart__item">
                                     <a href="seedetails?productId=<%=c.getProductId()%>">
@@ -244,7 +244,8 @@
                                     </td>
                                     <td class="shoping__cart__item__close">
                                     
-                                        <a href="deletewishlist?wishlistId<%=c.getWishlistId()%>"><span class="icon_close"></span></a>
+                                        <a href="deletewishlist?wishlistId=<%=c.getWishlistId()%>">
+                                        <span class="icon_close"></span></a>
                                     </td>
                                 </tr>
                                 

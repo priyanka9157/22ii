@@ -123,30 +123,30 @@
 	</header>
 	<!-- Header Section End -->
 
-	<%
-	List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list");
-	%>
+ 	<% 
+ 	List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list");
+	%> 
 
-	<!-- Hero Section Begin -->
-	<section class="hero hero-normal">
+ 	<!-- Hero Section Begin -->
+ 	<section class="hero hero-normal">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>All departments</span>
-						</div>
-						<ul>
-							<%
-							for (CategoryBean c : list) {
-							%>
-							<li><a href="seecategory?categoryId=<%=c.getCategoryId()%>"><%=c.getCategoryName() %></a></li>
-							<%
-							}
-							%>
-						</ul>
-					</div>
-				</div>
+ 				<div class="row"> 
+			<div class="col-lg-3"> 
+					<div class="hero__categories"> 
+ 						<div class="hero__categories__all"> 
+ 							<i class="fa fa-bars"></i> <span>All departments</span>
+ 						</div> 
+ 						<ul> 
+ 							<%
+						for (CategoryBean c : list) {
+ 							%> 
+  							<li><a href="seecategory?categoryId=<%=c.getCategoryId()%>"><%=c.getCategoryName() %></a></li> 
+ 							<% 
+ 							}
+ 							%> 
+ 						</ul>
+ 					</div> 
+ 				</div> 
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">
@@ -176,12 +176,11 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>My Address</h2>
+						<h2>Pay Now</h2>
 						
 						</div>
 					</div>
 				</div>
-			</div>
 			</div>
 		
 	</section>
@@ -190,82 +189,65 @@
 	<!-- Product Details Section Begin -->
  
     <%
-         List<PaymentBean> list1 = (List<PaymentBean>) request.getAttribute("Plist");
-                                   
-										%>
-     <section class="shoping-cart spad">
-    
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                           <th class="product-remove">Credit Card Number</th>
-											<th class="product-thumbnail">Exp date</th>
-											<th class="product-subtotal">Default</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                            
-                                
-                                    
-										 <% int totalQuantity = 0;
-    								int totalPrice = 0;
-                                    for (PaymentBean b : list1) {%>
-										<tr>
-										
-										
-										<td class="shoping__cart__price"><%=b.getCreditCardNum()%>
-									</td>
-									<td class="shoping__cart__quantity"><%=b.getExpDate()%></td>
-																
-										<td>
-											<input type="checkbox" <%=b.getDefaultInd()==true?"checked":""%> />
-											</td>	
-										
-                                        </tr>
-                                        <%
-								totalPrice = totalPrice + (c.getPrice() * c.getQuantity());
-								totalQuantity = totalQuantity + c.getQuantity();
-								}
-								%>
-								<tr>
-									<td></td>
-									<td class="product-name"><b>TOTAL</b></td>
-									<td><%=totalQuantity%></td>
-									<td>Rs.<%=totalPrice%>.00
-									</td>
+         List<PaymentBean> Plist = (List<PaymentBean>) request.getAttribute("Plist");
 
-									<%
-									session.setAttribute("totalPrice", totalPrice);
-									%>
-								</tr>
-								<tr>
-									<td class="actions" colspan="6"><a href="checkout"
-										type="button" class="btn btn-success">Checkout</a></td>
-								</tr>
+    
+	%>                         
+										
+     <div class="container">
+            <div class="row">
+   <div class="col-lg-8">
+                            <div class="checkout__order">
+                            
+                                <h4>Your Order</h4>
+                                
+                                <div class="checkout__order__subtotal">Subtotal <span>Rs.${totalPrice}.00</span></div>
+                                <div class="checkout__order__subtotal">Shipping<span>Rs.${totalPrice <= 499?50:"Free Shipping" }.00</span></div>
+                                <div class="checkout__order__total">Total <span>Rs.${totalPrice <= 499?totalPrice+50:totalPrice }.00</span></div>
+                                <div class="checkout__input__checkbox">
+                                    
+                                </div>
+                          
+									
+					<form action="chargecreditcard" method="post"> 
+								<div id="payment">
+									<ul class="payment_methods methods">
+										
+						
+										<%for(PaymentBean a : Plist){ %>
+										<li class="payment_method_bacs"><input type="radio" <%=a.getDefaultInd()==true?"checked":"" %> value="<%=a.getPaymentId()%>"
+											name="addressId" class="input-radio"
+											id="payment_method_bacs"> <label for="payment_method_bacs"> <%=a.getCreditCardNum()%> </label>
+											<div class="payment_box payment_method_bacs">
+											<p> 
+													<%=a.getExpDate() %> | 
+													
+												</p>
+											</div></li>
+											<%} %>
                                         
-                                        
-                               
-                                         </tbody>
-                        </table>
-                        <div>
-                        <br>
-                        <a href="newpayment">
-                       <input class="site-btn type="button"  value="Add Payment"></a>
+                                            </ul>
+									
+                        <a href="placeorder">
+                       <input class="site-btn type="button"  value="Place Order"></a>
                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        
-    </section>
-     <%} else {%>
+									</form>
+									 </div>
+									 
+									 </form>
+									 
+									 </div>
+									 
+                                
+                                
+                                
+                           
+                            </div>
+                           
+											
+                        </div>
+                        </div>
+	<!-- Related Product Section End -->
     
 	<!-- Related Product Section End -->
 
