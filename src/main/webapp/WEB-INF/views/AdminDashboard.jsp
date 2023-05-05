@@ -156,8 +156,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
                               </div>
                             </div>
                           </div>
-                          <span class="fw-semibold d-block mb-1">Transactions</span>
-                          <h3 class="card-title mb-2">${totaleTransactions==null?0:totaleTransactions}</h3>
+                          <span class="fw-semibold d-block mb-1">Pending Orders</span>
+                          <h3 class="card-title mb-2">${pendingOrders==null?0:pendingOrders}</h3>
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
                         </div>
                         

@@ -165,18 +165,14 @@ public class BuyerController {
 		model.addAttribute("mycart", mycart);
 		List<AddressBean> address = addressDao.getAllAddressByUser(user.getUserId());
 		model.addAttribute("address", address);
-		List<PaymentBean> list1 = paymentDao.getAllPayment();
+		List<PaymentBean> list1 = paymentDao.getAllPayment(user.getUserId());
 		model.addAttribute("Plist",list1);
 
 		return "Checkout2";
 	}
     
 	
-	@GetMapping("/placeorder")
-	public String placeorder() {
-		return "PlaceOrder";
-	
-	}
+
 	
 
 }

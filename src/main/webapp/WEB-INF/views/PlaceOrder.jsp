@@ -187,6 +187,7 @@
 	<!-- Breadcrumb Section End -->
 
 	<!-- Product Details Section Begin -->
+	
  
     <%
          List<PaymentBean> Plist = (List<PaymentBean>) request.getAttribute("Plist");
@@ -197,7 +198,36 @@
      <div class="container">
             <div class="row">
    <div class="col-lg-8">
-                            <div class="checkout__order">
+   <div class="checkout__order">
+   
+   <form action="chargecreditcard" method="post"> 
+  
+                          <div>   
+                        <label for="inputText" class="form-label">CreditCardNum</label>
+                        <input type="text" name="creditCardNum" class="form-control" id="catId" placeholder="creditCardNum" aria-describedby="defaultFormControlHelp">
+                        
+                      </div>
+                      <br><br>
+                        <div>
+                        <label for="inputText" class="form-label">ExpDate</label>
+                        <input type="text" name="ExpDate" class="form-control" id="catId" placeholder="ExpDate" aria-describedby="defaultFormControlHelp">
+                        
+                      </div>
+                      <br><br>
+                     
+                      
+                      <div>
+                        <label for="inputText" class="form-label">CVV</label>
+                        <input type="text" name="cvv" class="form-control" id="catId" placeholder="cvv" aria-describedby="defaultFormControlHelp">
+                       
+                      </div>
+                      
+											
+                     
+                       <input type="hidden" name="userId" value="${user.userId}"/>
+                  <input type="hidden" name="defaultInd" value="false"/>
+                  
+                  
                             
                                 <h4>Your Order</h4>
                                 
@@ -207,34 +237,20 @@
                                 <div class="checkout__input__checkbox">
                                     
                                 </div>
-                          
+                                
 									
-					<form action="chargecreditcard" method="post"> 
-								<div id="payment">
-									<ul class="payment_methods methods">
-										
-						
-										<%for(PaymentBean a : Plist){ %>
-										<li class="payment_method_bacs"><input type="radio" <%=a.getDefaultInd()==true?"checked":"" %> value="<%=a.getPaymentId()%>"
-											name="addressId" class="input-radio"
-											id="payment_method_bacs"> <label for="payment_method_bacs"> <%=a.getCreditCardNum()%> </label>
-											<div class="payment_box payment_method_bacs">
-											<p> 
-													<%=a.getExpDate() %> | 
-													
-												</p>
-											</div></li>
-											<%} %>
-                                        
-                                            </ul>
+					
+							<input type="hidden" name="amount" value="${totalPrice <= 499?totalPrice+50:totalPrice }"/>
+							<input type="hidden" name="email"  value="${user.email}" />
+	 
+
+								
 									
-                        <a href="placeorder">
-                       <input class="site-btn type="button"  value="Place Order"></a>
+                       <input class="site-btn" type="submit"  value="Place Order">
                        </div>
 									</form>
 									 </div>
 									 
-									 </form>
 									 
 									 </div>
 									 

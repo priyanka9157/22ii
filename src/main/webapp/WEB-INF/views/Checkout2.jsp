@@ -50,15 +50,15 @@
 		<div class="humberger__menu__logo">
 			<a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
 		</div>
-		
+
 		<div class="humberger__menu__widget">
-			
+
 			<div class="header__top__right__auth">
 				<a href="login"><i class="fa fa-user"></i> Login</a>
 			</div>
 		</div>
-		      <jsp:include page="NavBar.jsp"></jsp:include>
-		
+		<jsp:include page="NavBar.jsp"></jsp:include>
+
 		<div id="mobile-menu-wrap"></div>
 		<div class="header__top__right__social">
 			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
@@ -95,7 +95,7 @@
 									class="fa fa-linkedin"></i></a> <a href="#"><i
 									class="fa fa-pinterest-p"></i></a>
 							</div>
-							
+
 							<div class="header__top__right__auth">
 								<a href="login"><i class="fa fa-user"></i> Login</a>
 							</div>
@@ -112,14 +112,14 @@
 							alt=""></a>
 					</div>
 				</div>
-					                                <jsp:include page="BuyerMenu.jsp"></jsp:include>
-					
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
+				<jsp:include page="BuyerMenu.jsp"></jsp:include>
+
+				<div class="humberger__open">
+					<i class="fa fa-bars"></i>
+				</div>
 			</div>
 		</div>
-		</div>
-		
+
 	</header>
 	<!-- Header Section End -->
 
@@ -140,7 +140,7 @@
 							<%
 							for (CategoryBean c : list) {
 							%>
-							<li><a href="seecategory?categoryId=<%=c.getCategoryId()%>"><%=c.getCategoryName() %></a></li>
+							<li><a href="seecategory?categoryId=<%=c.getCategoryId()%>"><%=c.getCategoryName()%></a></li>
 							<%
 							}
 							%>
@@ -158,19 +158,18 @@
 								<button type="submit" class="site-btn">SEARCH</button>
 							</form>
 						</div>
-						
-							
-						</div>
+
+
 					</div>
 				</div>
 			</div>
-		
+		</div>
+
 	</section>
 	<!-- Hero Section End -->
 
 	<!-- Breadcrumb Section Begin -->
 	<%
-    
 	List<CartBean> mycart = (List<CartBean>) request.getAttribute("mycart");
 	%>
 	<section class="breadcrumb-section set-bg"
@@ -180,83 +179,99 @@
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
 						<h2>Confirm Your Order</h2>
-						
-						</div>
+
 					</div>
 				</div>
 			</div>
-		
+		</div>
+
 	</section>
 	<!-- Breadcrumb Section End -->
 
 	<!-- Product Details Section Begin -->
-<div class="container">
-            <div class="row">
-   <div class="col-lg-8">
-                            <div class="checkout__order">
-                            
-                                <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
-                                <%
-											for (CartBean c : mycart) {
-										%>
-                                <ul>
-                                    <li><%=c.getProductName() %> <span>Rs.<%=c.getPrice() %>.00</span></li>
-                                    
-                                </ul>
-                                 <%} %>
-                                <div class="checkout__order__subtotal">Subtotal <span>Rs.${totalPrice}.00</span></div>
-                                <div class="checkout__order__subtotal">Shipping<span>Rs.${totalPrice <= 499?50:"Free Shipping" }.00</span></div>
-                                <div class="checkout__order__total">Total <span>Rs.${totalPrice <= 499?totalPrice+50:totalPrice }.00</span></div>
-                                <div class="checkout__input__checkbox">
-                                    
-                                </div>
-                            <%
-                			
-                            List<AddressBean> address = (List<AddressBean>) request.getAttribute("address");
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="checkout__order">
+
+					<h4>Your Order</h4>
+					<div class="checkout__order__products">
+						Products <span>Total</span>
+					</div>
+					<%
+					for (CartBean c : mycart) {
+					%>
+					<ul>
+						<li><%=c.getProductName()%> <span>Rs.<%=c.getPrice()%>.00
+						</span></li>
+
+					</ul>
+					<%
+					}
+					%>
+					<div class="checkout__order__subtotal">
+						Subtotal <span>Rs.${totalPrice}.00</span>
+					</div>
+					<div class="checkout__order__subtotal">
+						Shipping<span>Rs.${totalPrice <= 499?50:"Free Shipping" }.00</span>
+					</div>
+					<div class="checkout__order__total">
+						Total <span>Rs.${totalPrice <= 499?totalPrice+50:totalPrice }.00</span>
+					</div>
+					<div class="checkout__input__checkbox"></div>
+					<%
+					List<AddressBean> address = (List<AddressBean>) request.getAttribute("address");
+					%>
+
+
+					<form action="placeorder" method="post">
+						<div id="payment">
+							<ul class="payment_methods methods">
+
+
+								<%
+								for (AddressBean a : address) {
 								%>
-								
-									
-					<form action="placeorder" method="post"> 
-								<div id="payment">
-									<ul class="payment_methods methods">
-										
-						
-										<%for(AddressBean a:address){ %>
-										<li class="payment_method_bacs"><input type="radio" <%=a.getDefaultInd()==true?"checked":"" %> value="<%=a.getAddressId()%>"
-											name="addressId" class="input-radio"
-											id="payment_method_bacs"> <label for="payment_method_bacs"> <%=a.getAddressLine()%> </label>
-											<div class="payment_box payment_method_bacs">
-											<p> 
-													<%=a.getLandMark() %> | 
-													<%=a.getCity() %> |
-													<%=a.getPincode() %> |
-													<%=a.getState() %>
-												</p>
-											</div></li>
-											<%} %>
-                                        
-                                            </ul>
-									
-                        <a href="placeorder">
-                       <input class="site-btn type="button"  value="Place Order"></a>
-                       </div>
-									</form>
-									 </div>
-									 
-									 </form>
-									 
-									 </div>
-									 
-                                
-                                
-                                
-                           
-                            </div>
-                           
-											
-                        </div>
-                        </div>
+								<li class="payment_method_bacs"><input type="radio"
+									<%=a.getDefaultInd() == true ? "checked" : ""%>
+									value="<%=a.getAddressId()%>" name="addressId"
+									class="input-radio" id="payment_method_bacs"> <label
+									for="payment_method_bacs"> <%=a.getAddressLine()%>
+								</label>
+									<div class="payment_box payment_method_bacs">
+										<p>
+											<%=a.getLandMark()%>
+											|
+											<%=a.getCity()%>
+											|
+											<%=a.getPincode()%>
+											|
+											<%=a.getState()%>
+										</p>
+									</div></li>
+								<%
+								}
+								%>
+
+							</ul>
+
+							<input class="site-btn" type="submit" value="Place Order">
+						</div>
+					</form>
+				</div>
+
+
+			</div>
+
+
+
+
+
+		</div>
+
+
+	</div>
+	</div>
 	<!-- Related Product Section End -->
 
 	<!-- Footer Section Begin -->

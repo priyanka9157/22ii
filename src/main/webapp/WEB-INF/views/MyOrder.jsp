@@ -193,7 +193,7 @@
     <%
 		List<OrderBean> myorders = (List<OrderBean>) request.getAttribute("myorders");
 	%>
-
+  
     <!-- Cart -->
     
     <section class="shoping-cart spad">
@@ -265,6 +265,9 @@
             </div>
        
     </section>
+    
+   
+	
     
 	<!-- Related Product Section End -->
 

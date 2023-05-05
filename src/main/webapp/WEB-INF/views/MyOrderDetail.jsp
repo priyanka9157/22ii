@@ -243,7 +243,7 @@
 
 
 											<td><%=c.getQty()*c.getPrice() %></td>
-											<td><%=c.getStatusName() %></td>
+											<td><%=c.getStatusName()%></td>
 										</tr>
 										
 										<%} %>

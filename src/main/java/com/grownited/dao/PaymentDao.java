@@ -21,11 +21,11 @@ public class PaymentDao {
 	}
 
 
-	public List<PaymentBean> getAllPayment() {
-		String updateQuery=" select * from payment";
+	public List<PaymentBean> getAllPayment(Integer userId) {
+		String updateQuery="select * from payment where userId = ? ";
 
-		List<PaymentBean> list =  stmt.query(updateQuery, new BeanPropertyRowMapper<PaymentBean>(PaymentBean.class));
-
+		List<PaymentBean> list =  stmt.query(updateQuery, new BeanPropertyRowMapper<PaymentBean>(PaymentBean.class),new Object[] {userId});
+		System.out.println("payment list => "+list.size());
 		return list;
 	}
 

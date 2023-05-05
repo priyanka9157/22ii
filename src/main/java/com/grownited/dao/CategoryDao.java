@@ -26,7 +26,7 @@ public class CategoryDao {
 		String selectQuery = "select * from category";
 
 		List<CategoryBean> list = stmt.query(selectQuery, new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class));
-
+		System.out.println("========"+list);
 		// c1 c2 c3
 
 		return list;

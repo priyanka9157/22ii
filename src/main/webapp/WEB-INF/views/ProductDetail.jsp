@@ -373,7 +373,7 @@
 										class="fa fa-heart"></i></a></li>
 								<li><a href="seedetails?productId=<%=cb.getProductId()%>"><i
 										class="fa fa-retweet"></i></a></li>
-								<li><a href="addtocart?productId=<%=cb.getProductId()%>"><i
+								<li><a href="addtocart?productId=<%=cb.getProductId()%>&qty=1"><i
 										class="fa fa-shopping-cart"></i></a></li>
 							</ul>
 						</div>

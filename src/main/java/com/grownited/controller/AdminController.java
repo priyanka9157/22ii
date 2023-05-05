@@ -30,14 +30,14 @@ public class AdminController<OrderChartBean> {
 				Integer totalOrderCount = adminDao.getTotaleOrderCountForCurrentDate();
 				Integer totalUserCount = adminDao.getTotalUserCountForCurrentYear();
 				Integer sumofOrderAmount = adminDao.getSumOfOrderAmountForCurrentYear();
-				Integer sumoftotalTransaction = adminDao.getTotalOrdersOfCurrentYear();
+				Integer pendingOrders = adminDao.getSumOfPendingOrdersorCurrentYear();
 				List<OrderChartBean> chartData = (List<OrderChartBean>) adminDao.getOrderStats();
 				
 				model.addAttribute("totalSales", totalOrderCount);
 				model.addAttribute("totalRevenue", sumofOrderAmount);
 				
 				model.addAttribute("totalUsers", totalUserCount);
-				model.addAttribute("totaleTransactions",sumoftotalTransaction);
+				model.addAttribute("pendingorders",pendingOrders);
 				model.addAttribute("chartData", chartData);
 				System.out.println(sumofOrderAmount);
 		

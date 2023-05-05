@@ -3,15 +3,12 @@ package com.grownited.controller;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,17 +50,21 @@ public class OrderControler {
 	public String placeOrder(AddressBean addressBean,HttpSession session,Model model) {
 		
 		
-
+		System.out.println("==============================================");
 		UserBean user = (UserBean) session.getAttribute("user");
 		List<CategoryBean> list = categoryDao.getAllCategory();
+
+		System.out.println("list => "+list.size());
 		model.addAttribute("list", list);
 
-		List<PaymentBean> list1 = paymentDao.getAllPayment();
+		List<PaymentBean> list1 = paymentDao.getAllPayment(user.getUserId());
 		model.addAttribute("Plist",list1);
+		
+		
 		
 		Integer addressId = addressBean.getAddressId(); 
 		LocalDate today = LocalDate.now();
-		Integer status = 9; //placed
+		Integer statusId = 9; //placed
 		Integer orderId = (int)(Math.random()*10000000);//565475455 
 
 		//amount 
@@ -80,7 +81,7 @@ public class OrderControler {
 		System.out.println(today);
 		System.out.println(user.getUserId());
 		System.out.println(totalAmount);
-		System.out.println(status);
+		System.out.println(statusId);
 		System.out.println(addressId);
 
 
@@ -90,7 +91,7 @@ public class OrderControler {
 		orderBean.setOrderDate(today.toString());
 		orderBean.setOrderId(orderId);
 		orderBean.setUserId(user.getUserId());
-		orderBean.setStatus(status);
+		orderBean.setStatus(statusId);
 		orderBean.setTotaleAmount(totalAmount);
 
 		orderDao.addOrder(orderBean);
@@ -104,6 +105,8 @@ public class OrderControler {
 		
 		
 		return "PlaceOrder";
+		
+		
 	}
 	
 	@GetMapping("/myorder")

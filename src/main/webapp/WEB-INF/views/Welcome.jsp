@@ -179,7 +179,7 @@
 							<h2>
 								Vegetable <br />100% Organic
 							</h2>
-							<a href="" class="primary-btn">SHOP NOW</a>
+							
 						</div>
 					</div>
 				</div>
@@ -275,7 +275,7 @@
 														href="seedetails?productId=<%=product.getProductId()%>"><i
 															class="fa fa-retweet"></i></a></li>
 													<li><a
-														href="addtocart?productId=<%=product.getProductId()%>"><i
+														href="addtocart?productId=<%=product.getProductId()%>&qty=1"><i
 															class="fa fa-shopping-cart"></i></a></li>
 												</ul>
 											</div>
@@ -354,7 +354,7 @@
 														href="seedetails?productId=<%=product.getProductId()%>"><i
 															class="fa fa-retweet"></i></a></li>
 													<li><a
-														href="addtocart?productId=<%=product.getProductId()%>"><i
+														href="addtocart?productId=<%=product.getProductId()%>&qty=1"><i
 															class="fa fa-shopping-cart"></i></a></li>
 												</ul>
 											</div>
@@ -384,22 +384,7 @@
 	<!-- Featured Section End -->
 
 	<!-- Banner Begin -->
-	<div class="banner">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="assets/buyer/img/banner/banner-1.jpg" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="assets/buyer/img/banner/banner-2.jpg" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<!-- Banner End -->
 
 	<!-- Latest Product Section Begin -->

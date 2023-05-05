@@ -23,8 +23,8 @@ public class PaymentService {
 
 		// Create object with merchant authentication details
 		MerchantAuthenticationType merchantAuthenticationType = new MerchantAuthenticationType();
-		merchantAuthenticationType.setName("useyour");
-		merchantAuthenticationType.setTransactionKey("useryour");
+		merchantAuthenticationType.setName("23D2qDU6v6");
+		merchantAuthenticationType.setTransactionKey("4Nt7Bf3M837mL34Q");
 
 		// Populate the payment data
 		PaymentType paymentType = new PaymentType();
