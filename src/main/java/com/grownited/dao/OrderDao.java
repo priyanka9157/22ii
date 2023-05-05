@@ -55,10 +55,5 @@ public OrderBean getOrdersByOrderId(Integer orderId) {
 	
 
 	
-	
-
-	// update
-
-	// delete
 
 }
