@@ -67,10 +67,10 @@ public class CategoryContoller {
 		return "ListCategory";
 	}
 	
-	@GetMapping("/deletecategory/{categoryId}/{currentStatus}")
-	public String deleteCategory(@PathVariable("categoryId") Integer categoryId,@PathVariable("currentStatus") boolean currentStatus) {
+	@GetMapping("/deletecategory")
+	public String deleteCategory(@RequestParam("categoryId") Integer categoryId) {
 		// 12 45
-		categoryDao.deleteCategory(categoryId,currentStatus);
+		categoryDao.deleteCategory(categoryId);
 		return "redirect:/listcategories";//
 	}
 	

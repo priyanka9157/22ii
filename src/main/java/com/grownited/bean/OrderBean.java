@@ -14,6 +14,8 @@ public class OrderBean {
 	String city;
 	String state; 
 	Integer status;
+	Boolean cOd;
+	
 	
 	
 	public Integer getOrderId() {
@@ -140,6 +142,18 @@ public class OrderBean {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
+	public Boolean getcOd() {
+		return cOd;
+	}
+
+	public void setcOd(Boolean cOd) {
+		this.cOd = cOd;
+	}
+
+	
+
+	
 
 	
 

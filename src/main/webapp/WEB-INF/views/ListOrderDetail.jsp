@@ -57,11 +57,8 @@
 						<th align="center">OrderId</th>
 						<th align="center">UserId</th>
 						<th align="center">ProductId</th>
-						<th align="center">Quantity</th>
 						<th align="center">Price</th>
-						<th align="center">StatusId</th>
-					    <th align="center">Deleted</th>
-						<th align="center">Action</th>
+						
 		
                        
                        
@@ -79,12 +76,8 @@
 					<td align="center"><%=od.getOrderId() %></td>
 					<td align="center"><%=od.getUserId() %></td>
 					<td align="center"><%=od.getProductId() %></td>
-					<td align="center"><%=od.getQuantity() %></td>
 					<td align="center"><%=od.getPrice() %></td>
-					<td align="center"><%=od.getStatusId() %></td>
-					<td align="center"><%=od.getDeleted() %></td>
-					<td align="center"><a href="deleteorderdetail/<%=od.getOrderDetailId()%>">Delete</a>
-					<a href="vieworderdetail/<%=od.getOrderDetailId() %>"><i class="bx bx-show"></i></a></td>
+					
 		
 		
 					
@@ -134,25 +127,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear());
-                  </script>2023
-               
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
+           <jsp:include page="AdminFooter.jsp"></jsp:include>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

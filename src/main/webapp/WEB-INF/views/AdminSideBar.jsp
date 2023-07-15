@@ -107,6 +107,15 @@ s <!-- Layout wrapper -->
               </a>
             </li>
             
+            <li class="menu-item">
+              <a href="listorders" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">List Orders</div>
+              </a>
+            </li>
+            
+            
+            
               
           
     

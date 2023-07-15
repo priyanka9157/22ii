@@ -56,7 +56,6 @@
                         <th align="center">CategoryName</th>
                         <th align="center">Deleted</th>
                         <th align="center">Active</th>
-                        <th align="center">Actions</th>
                         <th align="center">Edit</th>
                       </tr>
                     </thead>
@@ -66,17 +65,14 @@
 						
 						
 							<tr>
-					    <td align="center"><%=cb.getCategoryId() %></td>
-						<td align="center"><%=cb.getCategoryName() %></td>
-						<td align="center"><%=cb.getDeleted() %></td>
-						<td align="center"><div class="form-check form-switch">
-							<input class="form-check-input" onclick="changeStatus(<%=cb.getCategoryId()%>,<%=cb.getDeleted() %>)" type="checkbox"
-							id="flexSwitchCheckChecked"<%=!cb.getDeleted() ? "checked" : ""%>>
-						</div></td>
-						<td align="center"><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
+					    <td><%=cb.getCategoryId() %></td>
+						<td><%=cb.getCategoryName() %></td>
+						<td><%=cb.getDeleted() %></td>
+						
+						<td><a href="deletecategory?categoryId=<%=cb.getCategoryId()%>"><i class="bx bx-x"></i></a>
                        |  <a href="viewcategory/<%=cb.getCategoryId()%>"><i class="bx bx-show"></i></a></td>
                            
-						<td align="center">
+						<td>
 							<a href="editcategory?categoryId=<%=cb.getCategoryId()%>"><i class="bx bx-edit"></i></a>
 						</td>
 						</tr>
@@ -126,26 +122,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear();
-                  </script>
-           
-                  2023
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
+            <jsp:include page="AdminFooter.jsp"></jsp:include>
             <!-- / Footer -->
             
             <jsp:include page="AllJavaScript"></jsp:include>

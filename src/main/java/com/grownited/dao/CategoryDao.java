@@ -32,10 +32,10 @@ public class CategoryDao {
 		return list;
 	}
 
-	public void deleteCategory(Integer categoryId, boolean currentStatus) {
-		currentStatus = !currentStatus;
-		String updateQuery = "update category set deleted = ? where categoryId = ?";
-		stmt.update(updateQuery, currentStatus, categoryId);
+	public void deleteCategory(Integer categoryId) {
+		
+		String updateQuery = "update category set deleted = true where categoryId = ?";
+		stmt.update(updateQuery, categoryId);
 
 	}
 

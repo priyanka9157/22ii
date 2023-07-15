@@ -32,7 +32,9 @@
     <!-- Helpers -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
 </script>
+
     <script src="../assets/vendor/js/helpers.js"></script><style type="text/css">
+    
 .layout-menu-fixed .layout-navbar-full .layout-menu,
 .layout-page {
   padding-top: 0px !important;

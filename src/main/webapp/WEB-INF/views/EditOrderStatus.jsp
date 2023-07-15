@@ -1,11 +1,12 @@
-<%@page import="com.grownited.bean.CategoryBean"%>
+<%@page import="java.util.List"%>
+<%@page import="com.grownited.bean.StatusBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>onlineGrocery | New Category</title>
+<title>onlineGrocery | New Order</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -33,39 +34,75 @@
             <!-- Content -->
           
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Category</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Order Status</h4>
               
-             
-              
-              
-
               <div class="row">
                 <div class="col-md-9">
                   <div class="card mb-6">
                   
-                    <h5 class="card-header">Edit Category</h5>
-                  <form action="updatecategory" method="post">
-                  <input type="hidden" name="categoryId" value="${categoryBean.categoryId}"/>
+                    <h5 class="card-header">Edit Status</h5>
+                  <form action="updateorderstatus" method="post">
+                  <input type="hidden" name="orderId" value="${orderBean.orderId}"/>
                   
+                    
+                    
                     <div class="card-body">
                       <div>
-                        <label for="inputText" class="form-label"> Category Name</label>
-                        <input type="text" name="categoryName" value="${categoryBean.categoryName}" class="form-control"  aria-describedby="defaultFormControlHelp">
+                      
+                        <label for="defaultFormControlInput" class="form-label">Status Name</label>
                         
+                        <input type="text" name="status" value="${orderBean.status}" class="form-control" id="defaultFormControlInput" placeholder="${orderBean.statusId}" aria-describedby="defaultFormControlHelp">
+                       <br><br>
+                      
                       </div>
+                     
+                      </div>
+                      
+                     
+                      
                       <br><br>
-             	       <input class="btn btn-primary d-grid w-50" type="submit" value="updatecategory">
+             	       <input class="btn btn-primary d-grid w-50" type="submit" value="updateorderstatus">
              			 
              			 <br><br>
              			 
-             			 <a href="listcategories">Cancel</a> 
+             			 <a href="listorders">Cancel</a>
              			 
-                    </div>
-                    </form>
-                  </div>
-                
-                </div>
-                
+             		</form>
+             			 
+                   
+                    
+                 
+                 <%List<StatusBean> list =(List<StatusBean>)request.getAttribute("list");%>
+
+                   <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-6">
+                  
+                  
+                  <table class="table" border="1">
+                    <thead class="table-dark">
+                    <tr>
+                      <th>StatusId</th>
+					   <th>Status</th>
+					   </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0">
+                      <%for (StatusBean sb:list){ %>
+                      <tr>
+                      <td><%=sb.getStatusId() %></td>
+                      <td><%=sb.getStatus() %></td>
+                      </tr>
+                      
+                      <%} %>
+                      </tbody>
+                      
+                      
+                      </table>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      
 
                 <!-- Form controls -->
                 

@@ -52,6 +52,8 @@ public class SessionController {
 	public String login() {
 		return "Login";// JSP NAME
 	}
+	
+	
 
 	// on submit of Login.jsp
 	@PostMapping("/authentication")
@@ -86,7 +88,7 @@ public class SessionController {
 				return "redirect:/admindashboard";
 			} else if (userBean.getRole() == 2) {
 				// buyer
-				return "redirect:/home";
+				return "redirect:/welcome";
 			} else {
 				return "404";
 			}
@@ -160,6 +162,11 @@ public class SessionController {
 			session.invalidate();
 			return "redirect:/login";
 		}
+		
+//		@GetMapping("/") // URL => Browser
+//		public String welcome() {
+//			return "redirect:/welcome";// JSP NAME
+//		}
 
 }
 

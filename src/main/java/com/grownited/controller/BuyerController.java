@@ -86,10 +86,7 @@ public class BuyerController {
 		return "Welcome";
 	}
 
-	@GetMapping("/home")
-	public String home() {
-		return "redirect:/welcome";
-	}
+	
 
 	@GetMapping("/seedetails")
 	public String seeDetails(@RequestParam("productId") Integer productId, Model model,HttpServletRequest request) {
@@ -172,7 +169,7 @@ public class BuyerController {
 	}
     
 	
-
+	
 	
 
 }

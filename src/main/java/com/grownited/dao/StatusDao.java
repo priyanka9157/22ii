@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.grownited.bean.OrderBean;
 import com.grownited.bean.StatusBean;
 
 @Repository
@@ -51,6 +52,35 @@ public class StatusDao {
 		stmt.update(updateQuery,statusBean.getStatus(),statusBean.getStatusId());
 		
 	}
+
+	public void updateOrderStatus(StatusBean statusBean) {
+		String updateQuery = "update status set status  = ? where statusId = ? ";
+		stmt.update(updateQuery,statusBean.getStatus(),statusBean.getStatusId());
+		
+	}
+
+	public StatusBean getStatusbyId(Integer statusId) {
+		StatusBean statusBean = null;
+
+		try {
+			statusBean = stmt.queryForObject("select * from status where statusId = ?",
+					new BeanPropertyRowMapper<StatusBean>(StatusBean.class), new Object[] { statusId });
+		} catch (Exception e) {
+			System.out.println("StatusDao :: getStatusById()");
+			System.out.println(e.getMessage());
+		}
+		return statusBean;
+	}
+
+	
+	
+//	 public  List<OrderBean> getAllOrder() {
+//
+//			String selectQuery = "select o.orderId,u.userId,a.addressId,s.statusId,o.orderdate,o.totaleAmount,s.status,o.deleted from orders o,users u,address a,status s where o.addressId=a.addressId and o.statusId=s.statusId and o.deleted=false";
+//			return stmt.query(selectQuery,new BeanPropertyRowMapper<OrderBean>(OrderBean.class));
+//
+//
+//		   }
 
 	}
 

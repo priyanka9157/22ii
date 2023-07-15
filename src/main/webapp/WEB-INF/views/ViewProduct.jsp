@@ -45,23 +45,23 @@
 
 	
 <div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	ProductId :<%=productBean.getproductId()%>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	ProductId :<%=productBean.getProductId()%>
 	 </h7>
 	</div>
 	<div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Product Name :<%=productBean.getproductName()%>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Product Name :<%=productBean.getProductName()%>
 	 </h7>
 	</div>
 	<div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Description] : <%=productBean.getdescription() %>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Description : <%=productBean.getDescription()%>
 	 </h7>
 	</div>
 	<div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Quantity :<%=productBean.getquantity()%>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Quantity :<%=productBean.getQuantity()%>
 	 </h7>
 	</div>
 	<div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Price :<%=productBean.getprice()%>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Price :<%=productBean.getPrice()%>
 	 </h7>
 	</div>
 	

@@ -40,16 +40,16 @@
                   <div class="card mb-6">
                   
                     <h5 class="card-header">Add New Category</h5>
-                  <form action="savecategory" id="myform" method="post">
+                  <form action="savecategory" id="mycat" method="post">
                     <div class="card-body">
                       <div>
-                        <label for="defaultFormControlInput" class="form-label"> Category Name</label>
-                        <input type="text" name="categoryName" class="form-control" id="catId" placeholder="category name" aria-describedby="defaultFormControlHelp">
+                        <label for="defaultFormControlInput" class="form-label" re> Category Name</label>
+                        <input type="text" name="categoryName"  class="form-control" id="catId" placeholder="category name" aria-describedby="defaultFormControlHelp">
                         <span id="catNameError" class="error"></span>
                         
                       </div>
                       <br><br>
-                       <input class="btn btn-primary d-grid w-100" type="button" value="Save Category" onclick="validation()">
+                       <input class="btn btn-primary d-grid w-100" type="submit" value="Save Category">
                       
              			 <br><br>
              			 <a href="listcategories">List Category</a> 
@@ -70,26 +70,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear());
-                  </script>2023
-                  
-                  
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
+           <jsp:include page="AdminFooter.jsp"></jsp:include>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -104,45 +85,12 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <div class="buy-now">
-      <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
-
+   
     <!-- Core JS -->
-    <script type="text/javascript">
-        a = 10;
-        console.log(a);
-
-
-        function validation() {
-
-            isError = false ; 
-            catId = document.getElementById("catId");
-            catNameError = document.getElementById("catNameError");
-            catNameRegex = /^[a-zA-Z]+$/;
-            
-            if (catId.value == '') {
-                catNameError.innerHTML = "Please Enter CategoryName"
-                isError = true ; 
-            } else {
-                if (catNameRegex.test(catName.value) == false) {
-                    catNameError.innerHTML = "Please Enter Valid CategoryName";
-                    isError = true ; 
-
-                } else {
-                    catNameError.innerHTML = "";
-
-                
-            }
-                if(isError == false){
-                    myform = document.getElementById("myform");
-                    myform.submit(); 
-               
-                }
-            }//function 
-        </script>
-            
-            
+    
+    
+    
+    
             
             
             

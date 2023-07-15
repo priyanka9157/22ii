@@ -50,21 +50,21 @@
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">
                 <h5 class="card-header">Order List
-                <a href="neworder" class="bx bx-plus-circle"></a></h5>
+               </h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table" id="mytable">
                     <thead class="table-dark">
                       <tr>
-                       
-                    <th align="center">OrderId</th>
-					<th align="center">UserId</th>
-					<th align="center">AddressId</th>
-					<th align="center">StatusId</th>
-					<th align="center">OrderDate</th>
-					<th align="center">TotaleAmount</th>
-					<th align="center">status</th>
-					<th align="center">Deleted</th>
-					<th align="center">Action</th>
+                       <input type="hidden" name="statusId" value="${orderBean.statusId}"/>
+                    <th align="">OrderId</th>
+					<th align="">UserId</th>
+					<th align="">AddressId</th>
+					<th align="">StatusId</th>
+					<th align="">OrderDate</th>
+					<th align="">TotaleAmount</th>
+					<th align="">status</th>
+					<th align="">Edit Status</th>
+					
                        
                        
                        
@@ -77,16 +77,18 @@
                    
 					<tr>
 					
-					<td align="center"><%=ob.getOrderId() %></td>
-					<td align="center"><%=ob.getUserId() %></td>
-					<td align="center"><%=ob.getAddressId() %></td>
-					<td align="center"><%=ob.getStatusId() %></td>
-					<td align="center"><%=ob.getOrderDate() %></td>
+					<td align=""><%=ob.getOrderId() %></td>
+					<td align=""><%=ob.getUserId() %></td>
+					<td align=""><%=ob.getAddressLine() %>|<%=ob.getCity() %>|
+ 											<%=ob.getPincode() %>|
+ 											<%=ob.getState() %></td>
+					<td><%=ob.getStatusId() %></td>
+					<td align=""><%=ob.getOrderDate() %></td>
 					<td align="center"><%=ob.getTotaleAmount() %></td>
-					<td align="center"><%=ob.getStatus() %></td>
-					<td align="center"><%=ob.getDeleted() %></td>
-					<td align="center"><a href="deleteorder/<%=ob.getOrderId()%>">Delete</a>
-					<a href="vieworder/<%=ob.getOrderId() %>"><i class="bx bx-show"></i></a></td>
+					<td align=""><%=ob.getStatusName() %></td>
+					<td align="center">
+							<a href="editorderstatus?statusId=<%=ob.getStatusId()%>"><i class="bx bx-edit"></i></a>
+						</td>
 		
 					
 					</tr>
@@ -130,25 +132,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear());
-                  </script>2023
-               
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
+            <jsp:include page="AdminFooter.jsp"></jsp:include>
             <!-- / Footer -->
 <jsp:include page="AllJavaScript"></jsp:include>
             <div class="content-backdrop fade"></div>

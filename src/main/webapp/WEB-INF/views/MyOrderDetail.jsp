@@ -54,9 +54,7 @@
 		
 		<div class="humberger__menu__widget">
 			
-			<div class="header__top__right__auth">
-				<a href="login"><i class="fa fa-user"></i> Login</a>
-			</div>
+				<jsp:include page="NavBarLogin.jsp"></jsp:include>
 		</div>
 		      <jsp:include page="NavBar.jsp"></jsp:include>
 		
@@ -97,9 +95,7 @@
 									class="fa fa-pinterest-p"></i></a>
 							</div>
 							
-							<div class="header__top__right__auth">
-								<a href="login"><i class="fa fa-user"></i> Login</a>
-							</div>
+								<jsp:include page="NavBarLogin.jsp"></jsp:include>
 						</div>
 					</div>
 				</div>
@@ -212,7 +208,8 @@
 											<th class="product-quantity">Price</th>
 											<th class="product-quantity">Quantity</th>
 											<th class="product-quantity">Total Price</th>
-											<th class="product-subtotal">Status</th>
+											<th>Status</th>
+											
                                 </tr>
                             </thead>
                             <tbody>
@@ -224,14 +221,14 @@
 												%>
                            
                                 <tr>
-                                    <td class="shoping__cart__item" >
+                                    <td class="" >
                                         
                                          <%=c.getOrderId()%>
                                     </td>
                                     <td class="shoping__cart__price">
                                         <%=order.getOrderDate() %>
                                     </td>
-                                    <td><%=order.getPincode()%></td>
+                                    <td><%=c.getProductName()%></td>
                                     
                                     <td class="shoping__cart__total">
                                     <%=c.getPrice()%>
@@ -243,7 +240,8 @@
 
 
 											<td><%=c.getQty()*c.getPrice() %></td>
-											<td><%=c.getStatusName()%></td>
+											<td><%=order.getStatusName() %></td>
+											
 										</tr>
 										
 										<%} %>

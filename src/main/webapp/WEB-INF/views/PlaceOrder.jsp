@@ -53,9 +53,7 @@
 		
 		<div class="humberger__menu__widget">
 			
-			<div class="header__top__right__auth">
-				<a href="login"><i class="fa fa-user"></i> Login</a>
-			</div>
+				<jsp:include page="NavBarLogin.jsp"></jsp:include>
 		</div>
 		      <jsp:include page="NavBar.jsp"></jsp:include>
 		
@@ -96,9 +94,7 @@
 									class="fa fa-pinterest-p"></i></a>
 							</div>
 							
-							<div class="header__top__right__auth">
-								<a href="login"><i class="fa fa-user"></i> Login</a>
-							</div>
+								<jsp:include page="NavBarLogin.jsp"></jsp:include>
 						</div>
 					</div>
 				</div>
@@ -222,6 +218,7 @@
                         <input type="text" name="cvv" class="form-control" id="catId" placeholder="cvv" aria-describedby="defaultFormControlHelp">
                        
                       </div>
+                      
                       
 										
                      

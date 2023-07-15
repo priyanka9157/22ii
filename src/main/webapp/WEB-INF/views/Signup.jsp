@@ -173,7 +173,8 @@
                 <div class="mb-3 row">
                         <label for="html5-date-input" class="col-md-5 col-form-label">Date Of Birth</label>
                         <div class="col-md-12">
-                          <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" name="dob">
+                          <input class="form-control" type="date"  id="dob" name="dob">
+                        <span id="dobError" class="error"></span>
                         </div>
                       </div>
               
@@ -181,7 +182,8 @@
                 <div class="mb-3 row">
                         <label for="html5-tel-input" class="col-md-5 col-form-label">Contact Number</label>
                         <div class="col-md-12">
-                          <input class="form-control" name="contactNum" type="tel" value="1234567899" id="html5-tel-input">
+                          <input class="form-control" name="contactNum" type="tel" value="1234567899" id="conno" required="required">
+                        <span id="connoError" class="error"></span>
                         </div>
                       </div>
          
@@ -243,14 +245,7 @@
 
     <!-- / Content -->
 
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
+    
 
     <!-- Core JS -->
     <script type="text/javascript">
@@ -277,6 +272,14 @@
             password = document.getElementById("password")
             passError = document.getElementById("passError");
             passwordRegex = /[@#$]+/;
+            
+            dob = document.getElementById("dob")
+            dobError = document.getElementById("dobError");
+            dobRegex = /[0-9]+/;
+            
+            conno = document.getElementById("conno")
+            connoError = document.getElementById("connoError");
+            connoRegex = /[0-9]+/;
 
 
 
@@ -336,6 +339,33 @@
                     passError.innerHTML = "";
                 	}
             }
+            }
+            if (dob.value == '') {
+                dobError.innerHTML = "Please Enter Date Of Birth"
+                isError = true ; 
+            } else {
+                if (dobRegex.test(dob.value) == false) {
+                    dobError.innerHTML = "Please Enter Valid Date Of Birth";
+                    isError = true ; 
+
+                } else {
+                    dobError.innerHTML = "";
+
+                }
+            }
+            
+            if (conno.value == '') {
+                connoError.innerHTML = "Please Enter Contact Number"
+                isError = true ; 
+            } else {
+                if (connoRegex.test(conno.value) == false) {
+                    connoError.innerHTML = "Please Enter Valid Contact Number";
+                    isError = true ; 
+
+                } else {
+                    firstNameError.innerHTML = "";
+
+                }
             }
             if(isError == false){
                 myform = document.getElementById("myform");

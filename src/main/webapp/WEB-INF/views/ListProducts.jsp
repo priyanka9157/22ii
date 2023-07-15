@@ -63,7 +63,6 @@
 						<th align="center">CategoryId</th>
 						<th align="center">subCategoryId</th>
 						<th align="center">Deleted?</th>
-						<th align="center">Active</th>
 						<th align="center">Action</th>
 						<th align="center">UploadImage</th>
 						<th align="center">Edit</th>
@@ -78,7 +77,7 @@
                    <%for(ProductBean pb:listProducts){ %>
 					<tr>
 					<td align="center"><%=pb.getProductId() %></td>
-					<td align="center"><%=pb.getProductName() %></td>
+					<td><%=pb.getProductName() %></td>
 					<td align="center"><%=pb.getQuantity() %></td>
 					<td align="center"><%=pb.getPrice() %></td>
 					<td align="center"><%=pb.getTopSellingInd()%></td>
@@ -87,11 +86,8 @@
 					<td align="center"><%=pb.getCategoryId() %></td>
 					<td align="center"><%=pb.getSubCategoryId() %></td>
 					<td align="center"><%=pb.getDeleted() %></td>
-					<td align="center"><div class="form-check form-switch">
-							<input class="form-check-input" onclick="changeStatus(<%=pb.getProductId()%>,<%=pb.getDeleted() %>)" type="checkbox"
-							id="flexSwitchCheckChecked"<%=!pb.getDeleted() ? "checked" : ""%>>
-						</div></td>
-						<td><a href="deleteproduct/<%=pb.getProductId()%>">Delete</a>
+					
+						<td><a href="deleteproduct/<%=pb.getProductId()%>"><i class="bx bx-x"></i></a>
 				    <a href="viewproduct/<%=pb.getProductId() %>"><i class="bx bx-show"></i></a></td>
 				    <td align="center"> <a href="uploadimage?productId=<%=pb.getProductId()%>"><i class="bx bx-upload"></i> </a></td>
 						<td align="center">
@@ -150,25 +146,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear());
-                  </script>2023
-               
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
+            <jsp:include page="AdminFooter.jsp"></jsp:include>
             <!-- / Footer -->
             <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

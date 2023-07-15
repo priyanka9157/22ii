@@ -38,7 +38,6 @@ public class OrderDetailController {
 	StatusDao statusDao;
 	@Autowired
 	CategoryDao categoryDao;
-
 	
-
+	
 }

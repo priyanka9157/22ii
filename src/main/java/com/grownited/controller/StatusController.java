@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.grownited.bean.OrderBean;
+import com.grownited.bean.ProductBean;
 import com.grownited.bean.StatusBean;
+import com.grownited.dao.OrderDao;
 import com.grownited.dao.StatusDao;
 
 @Controller
@@ -18,6 +21,9 @@ public class StatusController {
 	
 	@Autowired
 	StatusDao statusDao;
+	
+	@Autowired
+	OrderDao oDao;
 	
 	@GetMapping ("/newstatus")
 	public String newStatus() {
@@ -69,5 +75,9 @@ public class StatusController {
 
 		return "redirect:/liststatus";
 	}
+	
+	
+	
+	
     }
 

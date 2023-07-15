@@ -56,7 +56,7 @@
 							<th>Status</th>
 							<th>Deleted?</th>
 							<th>Active</th>
-							<th>Action</th>
+							
 							<th>Edit</th>
                       </tr>
                     </thead>
@@ -68,13 +68,10 @@
 						<td><%=sb.getStatusId() %></td>
 						<td><%=sb.getStatus() %></td>
 						<td><%=sb.getDeleted()%></td>
-						<td align="center"><div class="form-check form-switch">
-							<input class="form-check-input" onclick="changeStatus(<%=sb.getStatusId()%>,<%=sb.getDeleted() %>)" type="checkbox"
-							id="flexSwitchCheckChecked"<%=!sb.getDeleted() ? "checked" : ""%>>
-						</div></td>
-						<td><a href="deletestatus/<%=sb.getStatusId()%>">Delete</a>
+						
+						<td><a href="deletestatus/<%=sb.getStatusId()%>"><i class="bx bx-x"></i></a>
 					<a href="viewstatus/<%=sb.getStatusId() %>"><i class="bx bx-show"></i></a></td>
-					<td align="center">
+					<td>
 							<a href="editstatus?statusId=<%=sb.getStatusId()%>"><i class="bx bx-edit"></i></a></td>
 				</tr>
 
@@ -121,25 +118,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear());
-                  </script>2023
-               
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
+            <jsp:include page="AdminFooter.jsp"></jsp:include>
             <!-- / Footer -->
 			<jsp:include page="AllJavaScript"></jsp:include>
             <div class="content-backdrop fade"></div>

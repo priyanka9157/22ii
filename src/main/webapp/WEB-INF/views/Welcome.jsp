@@ -48,24 +48,12 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
+			<a href="welcome"><img src="assets/buyer/img/logo.png" alt=""></a>
 		</div>
 
 		<div class="humberger__menu__widget">
 
-			<div class="header__top__right__auth">
-
-				<%
-				if (session.getAttribute("user") == null) {
-				%>
-				<a href="login"><i class="fa fa-user"></i> Login</a>
-				<%}else{ %>
-								<a href="logout"><i class="fa fa-user"></i>Logout</a>
-								
-				<%
-				}
-				%>
-			</div>
+			<jsp:include page="NavBarLogin.jsp"></jsp:include>
 		</div>
 
 
@@ -111,16 +99,7 @@
 									class="fa fa-pinterest-p"></i></a>
 							</div>
 
-							<div class="header__top__right__auth">
-							<%
-				           if (session.getAttribute("user") == null) {
-				           %>
-								<a href="login"><i class="fa fa-user"></i> Login</a>
-								<%}else{ %>
-								<a href="logout"><i class="fa fa-user"></i>Logout</a>
-								
-								<%} %>
-							</div>
+								<jsp:include page="NavBarLogin.jsp"></jsp:include>
 						</div>
 					</div>
 				</div>
@@ -130,8 +109,7 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.html"><img src="assets/buyer/img/logo.png"
-							style="" alt=""></a>
+						<a href="welcome"><img src="assets/buyer/img/logo.png" style="" alt=""></a>
 					</div>
 				</div>
 				<!-- buyer menu -->
@@ -172,10 +150,11 @@
 						</ul>
 					</div>
 				</div>
+				
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">
-							<form action="#">
+							<form action="shop">
 								<div class="hero__search__categories">
 									All Categories <span class="arrow_carrot-down"></span>
 								</div>
@@ -190,11 +169,11 @@
 
 
 					<div class="hero__item set-bg"
-						data-setbg="assets/buyer/img/hero/banner.jpg">
+						data-setbg="assets/buyer/img/hero/bgurl.jpg">
 						<div class="hero__text">
-							<span>FRUIT FRESH</span>
-							<h2>
-								Vegetable <br />100% Organic
+							
+							<h2 class="hero__text">
+								MY BUCKET<br/>
 							</h2>
 							<a class="site-btn" href="shop">Shop Now</a>
 
@@ -220,7 +199,7 @@
 					for (ProductBean product : AllProduct) {
 					%>
 					<div class="col-lg-3">
-						<div class="categories__item set-bg"
+						<div class="categories__item set-bg" href="seedetails?productId=<%=product.getProductId()%>"
 							data-setbg="assets/product/<%=product.getProductId()%>/main.jpg">
 							<h5>
 								<a href="seedetails?productId=<%=product.getProductId()%>"><%=product.getProductName()%></a>
@@ -286,7 +265,7 @@
 									<div class="col-lg-3 <%=product.getCategoryName()%>">
 										<div class="featured__item">
 											<div class="featured__item__pic set-bg"
-												data-setbg="assets/product/<%=product.getProductId()%>/main.jpg">
+												data-setbg="assets/product/<%=product.getProductId()%>/main.jpg" >
 												<ul class="featured__item__pic__hover">
 													<li><a
 														href="addtowishlist?productId=<%=product.getProductId()%>"><i
